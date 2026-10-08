@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="logo">🌙 Luna Store</div>
+
+  <nav class="nav" id="nav">
+    <a href="#home">الرئيسية</a>
+    <a href="#products">المنتجات</a>
+    <a href="#offers">العروض</a>
+    <a href="#about">من نحن</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+
+  <button class="cart-btn" onclick="openCart()">
+    🛒 السلة <span id="cart-count">0</span>
+  </button>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="slide active">
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=85">
+    <div class="hero-content">
+      <h1>اكتشفي أناقتك ✨</h1>
+      <p>أحدث المنتجات بأسعار مميزة</p>
+      <a href="#products" class="hero-btn">تسوقي الآن</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=85">
+    <div class="hero-content">
+      <h1>أناقة كل يوم 👗</h1>
+      <p>اختاري ما يناسبك من مجموعتنا</p>
+      <a href="#products" class="hero-btn">شاهدي المنتجات</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=85">
+    <div class="hero-content">
+      <h1>تسوقي بثقة 🛍️</h1>
+      <p>منتجات مختارة لكِ بعناية</p>
+      <a href="#offers" class="hero-btn">شاهدي العروض</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="categories-section">
+
+  <h2>تسوقي حسب القسم</h2>
+
+  <p class="categories-subtitle">
+    اختاري القسم الذي تريدينه
+  </p>
+
+  <div class="categories-wrapper">
+
+    <div class="categories" id="categoriesTrack">
+
+      <!-- المجموعة الأولى -->
+
+      <button class="category-card" onclick="filterProducts('all')">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>كل المنتجات</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('bags')">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الحقائب</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('shoes')">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الأحذية</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('watches')">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الساعات</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('electronics')">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الإلكترونيات</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('beauty')">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الجمال</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('fashion')">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الأزياء</span>
+      </button>
+
+
+      <!-- المجموعة الثانية -->
+
+      <button class="category-card" onclick="filterProducts('all')" aria-hidden="true">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>كل المنتجات</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('bags')" aria-hidden="true">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الحقائب</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('shoes')" aria-hidden="true">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الأحذية</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('watches')" aria-hidden="true">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الساعات</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('electronics')" aria-hidden="true">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الإلكترونيات</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('beauty')" aria-hidden="true">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الجمال</span>
+      </button>
+
+      <button class="category-card" onclick="filterProducts('fashion')" aria-hidden="true">
+        <div class="category-image">
+          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=500&q=85">
+        </div>
+        <span>الأزياء</span>
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="products-section" id="products">
+
+  <h2>منتجاتنا</h2>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="ابحثي عن منتج..."
+      oninput="searchProducts()"
+    >
+  </div>
+
+  <div class="products-grid">
+
+
+    <div class="product-card" data-category="bags" data-name="حقيبة جلدية">
+
+      <span class="discount">خصم 20%</span>
+
+      <img src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>حقيبة جلدية</h3>
+
+      <p>حقيبة أنيقة وعملية للاستخدام اليومي</p>
+
+      <strong>$45</strong>
+
+      <button onclick="addToCart('حقيبة جلدية',45)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="bags" data-name="حقيبة بنية">
+
+      <span class="discount">خصم 15%</span>
+
+      <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>حقيبة بنية</h3>
+
+      <p>تصميم عصري مناسب لجميع الإطلالات</p>
+
+      <strong>$55</strong>
+
+      <button onclick="addToCart('حقيبة بنية',55)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="shoes" data-name="حذاء رياضي">
+
+      <span class="discount">خصم 20%</span>
+
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>حذاء رياضي</h3>
+
+      <p>حذاء مريح للرياضة والمشاوير اليومية</p>
+
+      <strong>$60</strong>
+
+      <button onclick="addToCart('حذاء رياضي',60)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="shoes" data-name="حذاء أبيض">
+
+      <span class="discount">خصم 10%</span>
+
+      <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>حذاء أبيض</h3>
+
+      <p>حذاء أنيق وبسيط يناسب كل الإطلالات</p>
+
+      <strong>$50</strong>
+
+      <button onclick="addToCart('حذاء أبيض',50)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="watches" data-name="ساعة فاخرة">
+
+      <span class="discount">خصم 25%</span>
+
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>ساعة فاخرة</h3>
+
+      <p>ساعة بتصميم راقٍ وأنيق</p>
+
+      <strong>$80</strong>
+
+      <button onclick="addToCart('ساعة فاخرة',80)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="watches" data-name="ساعة جلدية">
+
+      <span class="discount">خصم 15%</span>
+
+      <img src="https://wristenvy.co.uk/cdn/shop/articles/luxury-watch-leather-strap-the-ultimate-guide-3074228.png?v=1764073077&width=1100">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>ساعة جلدية</h3>
+
+      <p>تصميم كلاسيكي بحزام جلدي</p>
+
+      <strong>$75</strong>
+
+      <button onclick="addToCart('ساعة جلدية',75)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="electronics" data-name="سماعات لاسلكية">
+
+      <span class="discount">خصم 20%</span>
+
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>سماعات لاسلكية</h3>
+
+      <p>صوت واضح وتصميم مريح</p>
+
+      <strong>$55</strong>
+
+      <button onclick="addToCart('سماعات لاسلكية',55)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="electronics" data-name="هاتف ذكي">
+
+      <span class="discount">خصم 10%</span>
+
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>هاتف ذكي</h3>
+
+      <p>هاتف عصري بأداء قوي</p>
+
+      <strong>$350</strong>
+
+      <button onclick="addToCart('هاتف ذكي',350)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="electronics" data-name="لابتوب عصري">
+
+      <span class="discount">خصم 15%</span>
+
+      <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>لابتوب عصري</h3>
+
+      <p>لابتوب مناسب للدراسة والعمل</p>
+
+      <strong>$650</strong>
+
+      <button onclick="addToCart('لابتوب عصري',650)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="beauty" data-name="عطر فاخر">
+
+      <span class="discount">خصم 20%</span>
+
+      <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>عطر فاخر</h3>
+
+      <p>رائحة مميزة تدوم طويلاً</p>
+
+      <strong>$65</strong>
+
+      <button onclick="addToCart('عطر فاخر',65)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="beauty" data-name="مستحضرات تجميل">
+
+      <span class="discount">خصم 15%</span>
+
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>مستحضرات تجميل</h3>
+
+      <p>مجموعة مختارة لإطلالتك اليومية</p>
+
+      <strong>$40</strong>
+
+      <button onclick="addToCart('مستحضرات تجميل',40)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+
+    <div class="product-card" data-category="fashion" data-name="ملابس أنيقة">
+
+      <span class="discount">خصم 30%</span>
+
+      <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=600&q=85">
+
+      <div class="rating">★★★★★</div>
+
+      <h3>ملابس أنيقة</h3>
+
+      <p>تصاميم عصرية وأنيقة</p>
+
+      <strong>$70</strong>
+
+      <button onclick="addToCart('ملابس أنيقة',70)">
+        أضيفي للسلة 🛒
+      </button>
+
+    </div>
+
+  </div>
+
+  <p id="noProducts" class="no-products">
+    لا توجد منتجات مطابقة 🔍
+  </p>
+
+</section>
+
+
+<!-- OFFER -->
+
+<section class="offer" id="offers">
+
+  <div class="offer-content">
+
+    <h2>خصومات تصل إلى 50% 🔥</h2>
+
+    <p>
+      لا تفوتي عروض Luna Store المميزة
+    </p>
+
+    <a href="#products">
+      تسوقي الآن
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <h2>من نحن</h2>
+
+  <p>
+    Luna Store متجر إلكتروني عصري يوفر لكِ مجموعة متنوعة
+    من المنتجات المختارة بعناية وبأسعار مناسبة.
+  </p>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <h2>تواصل معنا</h2>
+
+  <p>يسعدنا استقبال استفساراتك واقتراحاتك 💜</p>
+
+  <button onclick="showToast('سيتم التواصل معك قريباً 📩')">
+    تواصلي معنا
+  </button>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <div class="footer-logo">
+    🌙 Luna Store
+  </div>
+
+  <nav class="footer-nav">
+    <a href="#home">الرئيسية</a>
+    <a href="#products">المنتجات</a>
+    <a href="#offers">العروض</a>
+    <a href="#about">من نحن</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+
+  <button class="footer-cart" onclick="openCart()">
+    🛒 السلة
+    <span id="footer-cart-count">0</span>
+  </button>
+
+</footer>
+
+
+<!-- CART -->
+
+<div class="cart-modal" id="cartModal">
+
+  <div class="cart-box">
+
+    <button class="close-cart" onclick="closeCart()">×</button>
+
+    <h2>🛒 سلة التسوق</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+      الإجمالي:
+      $<span id="cartTotal">0</span>
+    </div>
+
+    <button class="checkout-btn" onclick="checkout()">
+      إتمام الطلب
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
